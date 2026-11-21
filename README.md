@@ -32,7 +32,7 @@ A privacy-conscious receipt checker that:
 - **Proof and demo:** proof server v9 end-to-end verification, original narrated evidence video, testnet transaction receipts if deployment becomes possible.
 - **Mainnet plan:** signed issuer credentials, permissioned administration, accessibility QA, review of metadata leaks, security audit, and explicit operational costs.
 
-## Evidence gates
+## Original hackathon presentation\n\n- [2:19 YouTube technical walkthrough (unlisted, playable)](https://youtu.be/VxWXyj1s_vQ) — original project-specific narration and 7 visual slides, verified contract CI results, truthful remaining limitations.\n- [MP4 in repository](media/LDN_Private_Quest_Receipts_Genuine_Technical_Walkthrough.mp4) — original H.264/AAC 1280×720 source artifact.\n- [Seven-slide pitch PDF](media/LDN_Private_Quest_Receipts_Pitch_Deck.pdf) — judges can inspect without video.\n- [Editable 7-slide PPTX](media/LDN_Private_Quest_Receipts_Pitch_Deck.pptx).\n- [Reproducible original video + deck generator](scripts/make_midnight_demo.py).\n\n## Evidence gates
 
 - [x] Official Compact compiler 0.36.1 pinned in GitHub Actions
 - [x] One original contract circuit builds successfully from source (job 44898737533)
@@ -40,7 +40,7 @@ A privacy-conscious receipt checker that:
 - [x] Six positive/negative in-memory generated-contract tests pass (run 44900372695)
 - [ ] Local proof generated and contract call verified
 - [ ] Optional testnet deployment with explorer hash and cost evidence
-- [ ] Original 3-minute-or-less playable demonstration
+- [x] Original 2:19 narrated, playable demonstration (https://youtu.be/VxWXyj1s_vQ) and 7-slide deck; proof and deployment unverified
 - [ ] AKINDO final judged Wave 3 submission (product listing alone is NOT a submission)
 
 Compilation + real in-memory runtime tests are genuine milestones, but do not establish cryptographic proof or public deployment. The project is not production-safe or fully eligible for a judged entry until organizer requirements are met. No reward, payout, or accepted submission is claimed.
