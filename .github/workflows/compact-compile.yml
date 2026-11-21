@@ -29,3 +29,7 @@ jobs:
           mkdir -p contract/managed
           compact compile contract/private-quest-receipt.compact contract/managed/private-quest-receipt
           echo "Compact compilation completed; no deployment implied."
+          echo "Generated JS interfaces:"
+          find contract/managed -maxdepth 5 -type f | sed -n "1,40p"
+          echo "Contract index interface:"
+          find contract/managed -type f -name "index.d.ts" -exec sh -c 'echo "$1"; sed -n "1,110p" "$1"' _ {} \;
