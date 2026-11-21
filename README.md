@@ -1,6 +1,6 @@
 # LDN Private Quest Receipts
 
-**Project stage: IDEA / PRE-COMPILER DESIGN (21 November 2026). No deployed contract, completed Compact compilation, verified zero-knowledge proof, or judged submission is claimed.**
+**Project stage: SOURCE PROTOTYPE / COMPILER VERIFIED (21 November 2026). The original Compact 0.36.1 circuit compiles in GitHub Actions. No behavioral tests, local proof, testnet deployment, signed issuance, playable demo or judged submission are claimed.**
 
 This is an original, Apache-2.0-licensed experimental Midnight project from [LuxeDigitalNest Privacy Builders](https://app.akindo.io/communities/JBRMPW64ecW9lKda1), prepared for the privacy-first Midnight buildathon.
 
@@ -19,25 +19,31 @@ A privacy-conscious receipt checker that:
 
 **Limits:** Merely knowing a secret is not evidence of authentic off-chain completion; issuer authentication and a trustworthy issuer-to-user credential process are required. A public nullifier and transaction timing can still reveal metadata. This design is not an anonymity guarantee or a production security audit.
 
+## Implemented source prototype
+
+- [`contract/private-quest-receipt.compact`](contract/private-quest-receipt.compact): one issuer-supplied *constructor* commitment per deployment, one private witness input, a domain-separated public nullifier, and a `Set` intended to reject replay. This is **not** multi-issuer authorization or production credential verification.
+- [GitHub Actions compiler log — passed](https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/actions/runs/44898737533): official Compact 0.36.1, `Compiling 1 circuits`, successful job. This checks syntax/code generation only.
+
 ## Planned components
 
-- **Compact contract:** approved commitments, replay prevention, role checks, and a private receipt witness.
+- **Contract extension:** authenticated issuer permissions, multiple authorized commitments and replay tests.
 - **Proof client:** locally generates witnesses and submits verifier transactions through Midnight supported tooling.
 - **Operator/issuer test flow:** authorize sample task commitments on a local test deployment.
 - **Demo and tests:** one valid completion, one nonmatching receipt rejection, and one replay rejection.
 - **Mainnet plan:** signed issuer credentials, permissioned administration, accessibility QA, review of metadata leaks, security audit, and explicit operational costs.
 
-## Evidence gates (all currently pending)
+## Evidence gates
 
-- [ ] Official Compact compiler installed and exact toolchain/runtime pinned
-- [ ] Contract builds successfully from source
+- [x] Official Compact compiler 0.36.1 pinned in GitHub Actions
+- [x] One original contract circuit builds successfully from source (job 44898737533)
+- [x] AKINDO concept product registered: https://app.akindo.io/communities/JBRMPW64ecW9lKda1/products/zK3AJ8lmLC7XnXQk
 - [ ] Automated positive and negative circuit tests pass
 - [ ] Local proof generated and contract call verified
 - [ ] Optional testnet deployment with explorer hash and cost evidence
 - [ ] Original 3-minute-or-less playable demonstration
-- [ ] AKINDO product registration and valid final Wave 3 submission
+- [ ] AKINDO final judged Wave 3 submission (product listing alone is NOT a submission)
 
-Do not treat a successful faucet request, a team page, or this README as satisfying the buildathon's technical requirement.
+Compilation is one genuine technical requirement, but by itself it does not establish a functional or eligible final entry. No reward, payout, or accepted submission is claimed.
 
 ## References
 
