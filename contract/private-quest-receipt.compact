@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: Apache-2.0
+// Early compiler-check prototype. Not a production receipt issuer or task-completion oracle.
+// Domain-separated public hashes and private receipt witnesses are used as a preliminary experiment.
+pragma language_version 0.28.0;
+import CompactStandardLibrary;
+
+// The issuer-provided commitment is a constructor input. In this minimal model,
+// each deployment is tied to exactly one approved secret.
+export sealed ledger approvedCommitment: Bytes<32>;
+export ledger redeemedNullifiers: Set<Bytes<32>>;
+
+constructor(commitment: Bytes<32>) {
+  approvedCommitment = disclose(commitment);
+}
+
+// A caller supplies a secret that remains private. The commitment is compared
+// without revealing the receipt. Only a domain-separated nullifier is disclosed.
+export circuit redeem(secret: Bytes<32>): [] {
+  const computed = persistentHash<Vector<2, Bytes<32>>>(
+    [pad(32, "LDN:issuer:receipt"), secret]
+  );
+  assert(computed == approvedCommitment, "Receipt is not approved");
+
+  const nullifier = disclose(persistentHash<Vector<2, Bytes<32>>>(
+    [pad(32, "LDN:receipt:spent"), secret]
+  ));
+  assert(!redeemedNullifiers.member(nullifier), "Receipt already redeemed");
+  redeemedNullifiers.insert(nullifier);
+}
