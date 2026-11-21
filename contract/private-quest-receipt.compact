@@ -13,17 +13,26 @@ constructor(commitment: Bytes<32>) {
   approvedCommitment = disclose(commitment);
 }
 
+// Pure client-side hash helpers are exported to make real test vectors reproducible.
+// They DO NOT submit secrets to the network, and their outputs may be public.
+export pure circuit receiptCommitment(secret: Bytes<32>): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>(
+    [pad(32, "LDN:issuer:receipt"), secret]
+  );
+}
+export pure circuit receiptNullifier(secret: Bytes<32>): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>(
+    [pad(32, "LDN:receipt:spent"), secret]
+  );
+}
+
 // A caller supplies a secret that remains private. The commitment is compared
 // without revealing the receipt. Only a domain-separated nullifier is disclosed.
 export circuit redeem(secret: Bytes<32>): [] {
-  const computed = persistentHash<Vector<2, Bytes<32>>>(
-    [pad(32, "LDN:issuer:receipt"), secret]
-  );
+  const computed = receiptCommitment(secret);
   assert(computed == approvedCommitment, "Receipt is not approved");
 
-  const nullifier = disclose(persistentHash<Vector<2, Bytes<32>>>(
-    [pad(32, "LDN:receipt:spent"), secret]
-  ));
+  const nullifier = disclose(receiptNullifier(secret));
   assert(!redeemedNullifiers.member(nullifier), "Receipt already redeemed");
   redeemedNullifiers.insert(nullifier);
 }
