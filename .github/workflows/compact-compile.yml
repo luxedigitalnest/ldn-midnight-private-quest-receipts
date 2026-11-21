@@ -1,0 +1,31 @@
+name: Compact compiler check
+
+on:
+  push:
+    paths:
+      - "contract/**/*.compact"
+      - ".github/workflows/compact-compile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install official Compact toolchain
+        uses: midnightntwrk/setup-compact-action@v1
+        with:
+          compact-version: '0.36.1'
+      - name: Confirm version and compile source
+        shell: bash
+        run: |
+          set -euo pipefail
+          compact compile --version
+          mkdir -p contract/managed
+          compact compile contract/private-quest-receipt.compact contract/managed/private-quest-receipt
+          echo "Compact compilation completed; no deployment implied."
