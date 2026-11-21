@@ -1,0 +1,16 @@
+{
+  "name": "ldn-midnight-private-quest-receipts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Original compiler-verified Compact circuit and in-memory executable tests",
+  "scripts": {
+    "test": "node --test tests/receipt.test.mjs"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "0.21.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
