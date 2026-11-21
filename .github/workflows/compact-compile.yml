@@ -5,6 +5,8 @@ on:
     paths:
       - "contract/**/*.compact"
       - ".github/workflows/compact-compile.yml"
+      - "tests/**"
+      - "package.json"
   workflow_dispatch:
 
 permissions:
@@ -33,3 +35,9 @@ jobs:
           find contract/managed -maxdepth 5 -type f | sed -n "1,40p"
           echo "Contract index interface:"
           find contract/managed -type f -name "index.d.ts" -exec sh -c 'echo "$1"; sed -n "1,110p" "$1"' _ {} \;
+      - name: Install pinned Compact runtime
+        shell: bash
+        run: npm install --no-audit --no-fund
+      - name: Execute real contract behavior tests
+        shell: bash
+        run: npm test
