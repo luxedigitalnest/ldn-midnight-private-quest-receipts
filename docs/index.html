@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LDN Private Quest Receipts — evidence explorer</title>
+<meta name="description" content="Original Midnight Compact prototype. Compiler verified; six generated-runtime tests pass. Public evidence and clearly labeled local educational model.">
+<style>
+:root{color-scheme:dark;--bg:#071020;--card:#121f37;--line:#2b4766;--text:#effaff;--muted:#a6bfd2;--accent:#49dadd;--violet:#8e74fc;--ok:#8effc6}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#22335b 0%,transparent 42%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}button{cursor:pointer}
+.wrap{width:min(1140px,92vw);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0;gap:20px;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.12em}.pill{display:inline-block;padding:6px 13px;border:1px solid #236e83;border-radius:30px;background:#103043;color:var(--accent);font-size:13px;font-weight:700}
+.hero{padding:70px 0 40px}.hero h1{max-width:780px;margin:14px 0;font-size:clamp(38px,6vw,72px);letter-spacing:-.05em;line-height:1.04}.hero p{font-size:19px;color:var(--muted);max-width:790px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0}
+.link{display:inline-block;padding:12px 17px;border:1px solid var(--line);border-radius:12px;background:#162742;color:var(--text);font-weight:700}.link.primary{background:var(--accent);color:#052135;border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 54px}.stat,.panel{background:linear-gradient(145deg,#142744,#0e1b33);border:1px solid var(--line);border-radius:18px;padding:26px}.num{font-size:46px;line-height:1.2;font-weight:800}.label{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+h2{font-size:30px;letter-spacing:-.03em;margin:45px 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel h3{margin-top:0;font-size:23px}.panel p,.panel li{color:var(--muted)}.panel ul{padding-left:21px}
+input{width:100%;padding:14px 16px;background:#06152a;border:1px solid #3a6481;color:#fff;border-radius:10px;font:16px monospace;margin:8px 0 15px}button.action{padding:12px 18px;border:0;border-radius:10px;background:var(--accent);color:#062237;font-weight:800;font-size:15px}button.secondary{background:#283d64;color:#fff}
+#result{min-height:72px;white-space:pre-wrap;padding:16px;background:#08172d;border-left:4px solid var(--violet);border-radius:6px;font-family:ui-monospace,monospace}pre{white-space:pre-wrap;word-break:break-word;padding:20px;border:1px solid var(--line);border-radius:10px;background:#08172d;color:#e9f9fd;font-size:14px}
+.warn{padding:16px 20px;border-left:4px solid #eec077;background:#25243a;margin:26px 0;color:#f5e9da}.footer{margin:64px 0 20px;padding:25px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:720px){.stats,.grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start}.hero{padding-top:35px}.stat{padding:17px}}
+</style></head><body><div class="wrap">
+<header class="nav"><div class="brand">LUXEDIGITALNEST <span style="color:var(--accent)">/ MIDNIGHT</span></div><span class="pill">Open-source prototype · 21 Nov 2026</span></header>
+<section class="hero">
+<span class="pill">Genuine Compact 0.36.1 build · 6/6 tests passing</span>
+<h1>Private Quest<br>Receipts</h1>
+<p>Prove one eligible completion without placing a participant's entire activity history in public view. An original Midnight Compact source prototype, with independently reproducible evidence and clearly stated security limitations.</p>
+<div class="actions"><a class="link primary" href="https://youtu.be/VxWXyj1s_vQ" target="_blank" rel="noopener">Watch genuine 2:19 demo</a><a class="link" href="https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts" target="_blank" rel="noopener">Source repository</a><a class="link" href="https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/blob/main/media/LDN_Private_Quest_Receipts_Pitch_Deck.pdf" target="_blank" rel="noopener">Pitch deck PDF</a></div>
+</section>
+<section class="stats" aria-label="Verified technical milestones"><article class="stat"><div class="num">0.36.1</div><div class="label">Official Compact compiler</div></article><article class="stat"><div class="num">6 / 6</div><div class="label">Generated runtime tests passed</div></article><article class="stat"><div class="num">0</div><div class="label">Verified public deployments</div></article></section>
+<h2>How the circuit is designed</h2>
+<section class="grid"><article class="panel"><h3>Approved commitment</h3><p>An issuer supplies one approved commitment in the contract constructor. Our prototype does not yet authenticate real-world issuers or verify off-chain completions.</p></article>
+<article class="panel"><h3>Private witness, public nullifier</h3><p>The Compact circuit takes a private secret, compares domain-separated commitments and inserts a one-time public nullifier after checking that it is unused.</p></article></section>
+<h2>Interactive educational model</h2>
+<div class="warn"><strong>This model is not the Compact contract or a ZK proof.</strong> It is a self-contained JavaScript explanation of the intended acceptance and replay flow. The actual generated Compact circuit is tested independently in the linked GitHub Actions run.</div>
+<section class="panel"><h3>Try the acceptance, rejection and replay states</h3>
+<label for="secret">Example receipt secret (educational model only; never paste real credentials)</label>
+<input id="secret" value="LDN-DEMO-ACCESS-2026" spellcheck="false" autocomplete="off">
+<div class="actions"><button class="action" id="redeem">Attempt model redemption</button><button class="action secondary" id="reset">Reset local model</button></div><div id="result" role="status" aria-live="polite">Ready. Try the default demo secret, try it again, or change it to an incorrect string.</div>
+</section>
+<h2>What our verifiable tests establish</h2>
+<section class="grid"><article class="panel"><h3>All six runtime tests pass</h3><ul><li>Deterministic, domain-separated hashes</li><li>Constructor commitment stored, nullifiers initially empty</li><li>Valid receipt accepted</li><li>Invalid receipt rejected without changing state</li><li>Replay rejected after the first redemption</li><li>Raw secret absent from the exposed ledger fields</li></ul><a href="https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/actions/runs/44900372695" target="_blank" rel="noopener">Inspect real CI logs: 6 passed, 0 failed</a></article>
+<article class="panel"><h3>What remains unverified</h3><ul><li>Proof-server ZK proof generation and verification</li><li>Preview or Preprod testnet transaction and contract deployment</li><li>Multi-issuer authenticated issuance and revocation</li><li>Metadata privacy and independent security audit</li><li>Any real-world grant, prize or production use</li></ul><a href="https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/blob/main/contract/private-quest-receipt.compact" target="_blank" rel="noopener">Inspect exact Compact source</a></article></section>
+<footer class="footer">Original project by LuxeDigitalNest Privacy Builders · Apache-2.0 · No wallet connection, cookies, analytics, backend or real tokens used by this educational page.</footer>
+</div>
+<script>
+(function(){let claimed=false;const $=id=>document.getElementById(id);$('redeem').addEventListener('click',async()=>{const secret=$('secret').value;const set=x=>$('result').textContent=x;if(secret!=='LDN-DEMO-ACCESS-2026')return set('REJECTED by this JS model: supplied example secret is not approved. No on-chain action.');if(claimed)return set('REJECTED by this JS model: already redeemed. The local one-time state prevents replay.');claimed=true;set('ACCEPTED by this JS model: this demo example secret matches the approved test value. A local redemption flag has been set. No ZK proof or network transaction occurred.');});$('reset').addEventListener('click',()=>{claimed=false;$('result').textContent='Local model reset. No chain state changed.';});})();
+</script></body></html>
