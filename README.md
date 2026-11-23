@@ -1,6 +1,6 @@
 # LDN Private Quest Receipts
 
-**Project stage: COMPILER + IN-MEMORY TESTED SOURCE PROTOTYPE (21 November 2026). Original Compact 0.36.1 compilation and six genuine generated-runtime tests passed (0 failed). No generated zero-knowledge proof, testnet deployment, signed credential issuer, or judged submission is claimed.**
+**Project stage (23 November 2026): Original Compact 0.36.1 compiler and six generated-runtime tests passed (0 failed) in [GitHub Actions](https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/actions/runs/44900372695). An original [video demonstration](https://www.youtube.com/watch?v=VxWXyj1s_vQ) is published. The [AKINDO product page](https://app.akindo.io/communities/JBRMPW64ecW9lKda1/products/zK3AJ8lmLC7XnXQk) explicitly lists the product as **Submitted to** Midnight Buildathon Wave 3. No organizer award, prize, deployed testnet transaction, real zero-knowledge proof, or production readiness is claimed.**
 
 This is an original, Apache-2.0-licensed experimental Midnight project from [LuxeDigitalNest Privacy Builders](https://app.akindo.io/communities/JBRMPW64ecW9lKda1), prepared for the privacy-first Midnight buildathon.
 
@@ -22,7 +22,8 @@ A privacy-conscious receipt checker that:
 ## Implemented source prototype
 
 - [`contract/private-quest-receipt.compact`](contract/private-quest-receipt.compact): one issuer-supplied *constructor* commitment per deployment, one private witness input, a domain-separated public nullifier, and a `Set` intended to reject replay. This is **not** multi-issuer authorization or production credential verification.
-- [Compiler AND behavior test run — PASSED 6/6](https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/actions/runs/44900372695): official Compact toolchain 0.36.1, `Compiling 1 circuits`, then `npm test` 6 passed / 0 failed. Genuine generated-contract in-memory calls, not mocks or an on-chain proof.\n- [`tests/receipt.test.mjs`](tests/receipt.test.mjs): deterministic hashes, distinct commitment/nullifier, constructor/public state, valid redemption, invalid witness rejection, repeat rejection and no raw secret in the public ledger.
+- [Compiler AND behavior test run — PASSED 6/6](https://github.com/luxedigitalnest/ldn-midnight-private-quest-receipts/actions/runs/44900372695): official Compact toolchain 0.36.1, `Compiling 1 circuits`, then `npm test` 6 passed / 0 failed. Genuine generated-contract in-memory calls, not mocks or an on-chain proof.
+- [`tests/receipt.test.mjs`](tests/receipt.test.mjs): deterministic hashes, distinct commitment/nullifier, constructor/public state, valid redemption, invalid witness rejection, repeat rejection and no raw secret in the public ledger.
 
 ## Planned components
 
@@ -41,11 +42,13 @@ A privacy-conscious receipt checker that:
 - [ ] Local proof generated and contract call verified
 - [ ] Optional testnet deployment with explorer hash and cost evidence
 - [x] Original 2:19 narrated, playable demonstration (https://youtu.be/VxWXyj1s_vQ) and 7-slide deck; proof and deployment unverified
-- [ ] AKINDO final judged Wave 3 submission (product listing alone is NOT a submission)
+- [x] Product submitted to the AKINDO Midnight Buildathon Wave 3 (the [official product page](https://app.akindo.io/communities/JBRMPW64ecW9lKda1/products/zK3AJ8lmLC7XnXQk) labels the Wave under **Submitted to**); judging outcome and prize unconfirmed
 
-Compilation + real in-memory runtime tests are genuine milestones, but do not establish cryptographic proof or public deployment. The project is not production-safe or fully eligible for a judged entry until organizer requirements are met. No reward, payout, or accepted submission is claimed.
+Compilation + real in-memory runtime tests are genuine milestones, but do not establish a cryptographic proof or public deployment. The existing AKINDO Wave 3 product submission is not a judging decision: review, eligibility acceptance, awards and payouts remain unconfirmed. This code is not production-safe.
 
-## Reproduce the verified tests\n\nThe GitHub Actions workflow checks out the exact public source and performs:\n\n```bash\ncompact update 0.36.1\ncompact compile contract/private-quest-receipt.compact contract/managed/private-quest-receipt\nnpm install --no-audit --no-fund\nnpm test\n```\n\nThe official workflow is [compact-compile.yml](.github/workflows/compact-compile.yml). Required versions: Node.js 22+, Compact toolchain 0.36.1, Compact runtime 0.21.0. **Do not treat an in-memory test as a ZK proof, deployment, or chain receipt.**\n\n## References
+## Reproduce the verified tests
+
+The GitHub Actions workflow checks out the exact public source and performs:\n\n```bash\ncompact update 0.36.1\ncompact compile contract/private-quest-receipt.compact contract/managed/private-quest-receipt\nnpm install --no-audit --no-fund\nnpm test\n```\n\nThe official workflow is [compact-compile.yml](.github/workflows/compact-compile.yml). Required versions: Node.js 22+, Compact toolchain 0.36.1, Compact runtime 0.21.0. **Do not treat an in-memory test as a ZK proof, deployment, or chain receipt.**\n\n## References
 
 - [Midnight docs: toolchain installation](https://docs.midnight.network/getting-started/installation)
 - [Midnight docs: private smart contracts](https://docs.midnight.network/guides/build-a-private-smart-contract)
